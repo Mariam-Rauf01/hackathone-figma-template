@@ -25,8 +25,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Add Montserrat font from Google Fonts */}
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+        />
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans`}
       >
         {children}
       </body>
