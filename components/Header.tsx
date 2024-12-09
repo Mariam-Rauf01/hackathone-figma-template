@@ -1,14 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
-import {
-  FaInstagram,
-  FaYoutube,
-  FaFacebook,
-  FaTwitter,
-} from "react-icons/fa";
+
 import {
   MdSearch,
   MdOutlineShoppingCart,
@@ -16,7 +9,8 @@ import {
   MdPersonOutline,
   MdKeyboardArrowDown,
 } from "react-icons/md";
-import { HiOutlinePhone } from "react-icons/hi";
+import Topbar1 from "./Topbar1";
+
 
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -32,39 +26,7 @@ const Header = () => {
 
   return (
     <header>
-      {/* Top Bar */}
-      <div className="hidden md:block bg-[#252B42] text-white text-sm py-2">
-        <div className="container mx-auto flex justify-between items-center flex-wrap px-4 md:px-8">
-          {/* Contact Info */}
-          <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-1">
-              <HiOutlinePhone className="text-base" />
-              <span>(225) 555-0118</span>
-            </div>
-            <div className="flex items-center space-x-1">
-      <FontAwesomeIcon icon={faEnvelope} className="text-base text-white" />
-      <span>michelle.rivera@example.com</span>
-    </div>
-          </div>
-
-          {/* Follow Us */}
-          <div className="hidden md:flex items-center justify-center space-x-4">
-            <span className="hidden md:block">
-              Follow Us and get a chance to win 80% off
-            </span>
-          </div>
-
-          {/* Social Media Icons */}
-          <div className="flex justify-center items-center space-x-2 text-white">
-            <span className="hidden md:block">Follow Us:</span>
-            <FaInstagram className="hover:text-gray-400 cursor-pointer" />
-            <FaYoutube className="hover:text-gray-400 cursor-pointer" />
-            <FaFacebook className="hover:text-gray-400 cursor-pointer" />
-            <FaTwitter className="hover:text-gray-400 cursor-pointer" />
-          </div>
-        </div>
-      </div>
-
+      <Topbar1/>
       {/* Main Navbar */}
       <div className="bg-white py-3 shadow-md">
         <div className="container mx-auto flex justify-between items-center flex-wrap px-4 md:px-8">
@@ -86,29 +48,15 @@ const Header = () => {
                 className="flex items-center space-x-1 text-gray-600 hover:text-gray-800 hover:underline cursor-pointer"
                 onClick={toggleDropdown}
               >
-                <Link href="/shop">Shop</Link>
+                <Link href={'/productlist'}>Shop</Link>
                 <MdKeyboardArrowDown size={20} />
               </div>
-              {isDropdownOpen && (
-               <div className="absolute rounded-md bg-[#181818] shadow-md mt-2">
-               <Link
-                 href="/shop/category1"
-                 className="block px-6 py-3 text-sm text-white transition-colors duration-300 ease-in-out hover:bg-white hover:text-[#181818]"
-               >
-                 Category 1
-               </Link>
-               <Link
-                 href="/shop/category2"
-                 className="block px-6 py-3 text-sm text-white transition-colors duration-300 ease-in-out hover:bg-white hover:text-[#181818] "
-               >
-                 Category 2
-               </Link>
-             </div>
+            
              
-              )}
+              
             </div>
             <Link
-              href="/about"
+              href={'/About'}
               className="text-gray-600 hover:text-[#252B42] hover:underline"
             >
               About
@@ -120,13 +68,13 @@ const Header = () => {
               Blog
             </Link>
             <Link
-              href="/contact"
+              href={'/Contact'}
               className="text-gray-600 hover:text-[#252B42] hover:underline"
             >
               Contact
             </Link>
             <Link
-              href="/pages"
+              href={'/pages'}
               className="text-gray-600 hover:text-[#252B42] hover:underline"
             >
               Pages
@@ -198,11 +146,11 @@ const Header = () => {
             <Link href="/about" className="text-gray-600 hover:text-[#252B42] hover:underline">
               Product
             </Link>
-            <Link href="/blog" className="text-gray-600 hover:text-[#252B42] hover:underline">
+            <Link href={'/Pricing'} className="text-gray-600 hover:text-[#252B42] hover:underline">
               Pricing
             </Link>
             <Link
-              href="/contact"
+              href={'/Contact'}
               className="text-gray-600 hover:text-[#252B42] hover:underline "
             >
               Contact
